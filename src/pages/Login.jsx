@@ -11,7 +11,7 @@ export default function Login() {
 
   return (
     <div className='flex items-center justify-center h-full'>
-      <form onSubmit={handleSubmit} className='flex gap-4 flex-col bg-blue-100/30 p-6 rounded-lg'>
+      <form onSubmit={handleSubmit} className='flex gap-4 flex-col bg-blue-100/30 p-6 rounded-lg w-90'>
         <input className='border border-black/50 rounded-lg px-2 py-1' type="email" placeholder='email@example.com' required />
         <input className='border border-black/50 rounded-lg px-2 py-1' type="password" placeholder='p@ssWord1' required />
         <button type="submit" className='bg-blue-400 rounded-lg py-1'>
