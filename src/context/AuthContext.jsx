@@ -41,6 +41,10 @@ export const AuthProvider = ({ children }) => {
         try {
             setLoading(true);
             setError(null);
+            if (userData.password !== user.cPassword) {
+                setError("Password and Confirm Password are different")
+                throw new Error("Password and Confirm Password are different")
+            }
             //fetch api login
             const mockUser = {
                 id: Date.now(),
