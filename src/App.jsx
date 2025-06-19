@@ -13,13 +13,13 @@ export default function App() {
     {
       id: 2,
       doctor: "Dr. Tarun",
-      date: "2025-06-19",
+      date: "2025-06-26",
       time: "10:56:10"
     },
     {
       id: 3,
       doctor: "Dr. Rohit",
-      date: "2025-06-19",
+      date: "2025-06-26",
       time: "11:58:10"
     }
   ]
