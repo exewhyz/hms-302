@@ -8,7 +8,7 @@ const getUserFromLocal = () => {
 }
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(getUserFromLocal);
+    const [user, setUser] = useState(getUserFromLocal());
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         try {
             setLoading(true);
             setError(null);
-            if (userData.password !== user.cPassword) {
+            if (userData.password !== userData.cPassword) {
                 setError("Password and Confirm Password are different")
                 throw new Error("Password and Confirm Password are different")
             }
@@ -51,6 +51,7 @@ export const AuthProvider = ({ children }) => {
                 ...userData
             }
             delete mockUser.password;
+            delete mockUser.cPassword;
             setUser(mockUser);
             localStorage.setItem("user", JSON.stringify(mockUser));
         } catch (error) {

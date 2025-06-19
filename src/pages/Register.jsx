@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 export default function Register() {
 
-  const { loading, isAuthenticated, register } = useAuth();
+  const { error, loading, isAuthenticated, register } = useAuth();
   const redirect = useNavigate();
 
   const [user, setUser] = useState({
@@ -19,7 +19,7 @@ export default function Register() {
 
   useEffect(() => {
     isAuthenticated && redirect("/")
-  }, [])
+  }, [isAuthenticated])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -102,13 +102,16 @@ export default function Register() {
           onChange={handleChange}
         />
         <button
+          disabled={loading}
           type="submit"
-          className='bg-green-400 rounded-lg py-1'>
-          Register
+          className='bg-green-400 rounded-lg py-1'
+        >
+          {loading ? "Registering User" : "Register"}
         </button>
         <Link className="text-xs text-neutral-400 hover:text-neutral-500" to={"/login"}>
           Already have an account, Login!
         </Link>
+        {error && <p className='text-sm text-red-400 font-semibold'>{error}</p>}
       </form>
     </div>
   )

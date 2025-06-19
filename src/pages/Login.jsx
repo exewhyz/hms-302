@@ -11,7 +11,7 @@ export default function Login() {
 
   useEffect(() => {
     isAuthenticated && redirect("/")
-  }, [])
+  }, [isAuthenticated])
 
   const handleSubmit = async (event) => {
     event.preventDefault();
