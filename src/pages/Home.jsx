@@ -1,28 +1,10 @@
 import React from 'react'
 import Table from '../components/Table'
+import { useData } from '../context/DataContext'
 
 export default function Home() {
 
-  const appointments = [
-    {
-      id: 1,
-      doctor: "Dr. Aditya",
-      date: "2025-06-16",
-      time: "10:56:10"
-    },
-    {
-      id: 2,
-      doctor: "Dr. Tarun",
-      date: "2025-06-26",
-      time: "10:56:10"
-    },
-    {
-      id: 3,
-      doctor: "Dr. Rohit",
-      date: "2025-06-26",
-      time: "11:58:10"
-    }
-  ]
+  const { appointments } = useData();
 
   const upcommingAppointments = appointments.filter((app) => new Date(app.date) > Date.now())
   const pastAppointments = appointments.filter((app) => new Date(app.date) < Date.now())

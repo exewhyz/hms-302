@@ -2,10 +2,46 @@ import { createContext, useContext, useState } from "react";
 
 const DataContext = createContext();
 
+const appointmentsData = [
+    {
+        id: 1,
+        doctor: "Dr. Aditya",
+        date: "2025-06-16",
+        time: "10:56:10"
+    },
+    {
+        id: 2,
+        doctor: "Dr. Tarun",
+        date: "2025-06-26",
+        time: "10:56:10"
+    },
+    {
+        id: 3,
+        doctor: "Dr. Rohit",
+        date: "2025-06-26",
+        time: "11:58:10"
+    }
+]
+
+const prescriptionsData = [
+    {
+        id: 1,
+        dcotor: "Dr. Aditya",
+        details: "ugduifher"
+    },
+    {
+        id: 2,
+        dcotor: "Dr. Aditya",
+        details: "ugfoilref0e"
+    }
+]
+
+
+
 export const DataProvider = ({ children }) => {
 
-    const [appointments, setAppointments] = useState([]);
-    const [precsriptions, setPrecsriptions] = useState([]);
+    const [appointments, setAppointments] = useState(appointmentsData);
+    const [precsriptions, setPrecsriptions] = useState(prescriptionsData);
     const [dataLoading, setDataLoading] = useState(false);
     const [dataError, setDataError] = useState(null);
 
@@ -39,4 +75,4 @@ export const DataProvider = ({ children }) => {
     )
 }
 
-export const UseData = () => useContext(DataContext);
+export const useData = () => useContext(DataContext);
