@@ -26,12 +26,12 @@ const appointmentsData = [
 const prescriptionsData = [
     {
         id: 1,
-        dcotor: "Dr. Aditya",
+        doctor: "Dr. Aditya",
         details: "ugduifher"
     },
     {
         id: 2,
-        dcotor: "Dr. Aditya",
+        doctor: "Dr. Aditya",
         details: "ugfoilref0e"
     }
 ]
@@ -41,7 +41,7 @@ const prescriptionsData = [
 export const DataProvider = ({ children }) => {
 
     const [appointments, setAppointments] = useState(appointmentsData);
-    const [precsriptions, setPrecsriptions] = useState(prescriptionsData);
+    const [prescriptions, setPrescriptions] = useState(prescriptionsData);
     const [dataLoading, setDataLoading] = useState(false);
     const [dataError, setDataError] = useState(null);
 
@@ -69,7 +69,7 @@ export const DataProvider = ({ children }) => {
         }
     }
     return (
-        <DataContext.Provider value={{ dataLoading, dataError, appointments, precsriptions, addAppointment }}>
+        <DataContext.Provider value={{ dataLoading, dataError, appointments, prescriptions, addAppointment }}>
             {children}
         </DataContext.Provider>
     )
